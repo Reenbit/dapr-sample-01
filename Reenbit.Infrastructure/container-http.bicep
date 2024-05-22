@@ -11,7 +11,7 @@ param maxReplicas int = 1
 param env array = []
 param enableDapr bool = false
 
-resource environment 'Microsoft.App/managedEnvironments@2022-01-01-preview' existing = {
+resource environment 'Microsoft.App/managedEnvironments@2024-03-01' existing = {
   name: environmentName
 }
 
@@ -19,7 +19,7 @@ resource registry 'Microsoft.ContainerRegistry/registries@2021-12-01-preview' ex
   name: containerRegistry
 }
 
-resource containerApp 'Microsoft.App/containerApps@2022-01-01-preview' = {
+resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
   name: containerAppName
   location: location
   properties: {
