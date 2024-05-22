@@ -1,4 +1,4 @@
-name: Push Ordering Contracts Nuget Package to GitHub Package Registry
+name: Push Ordering Contracts Nuget Package
 
 on:
   push:
@@ -38,7 +38,8 @@ jobs:
 
       - name: dotnet build and publish
         run: |
-          dotnet restore
+          cd Reenbit.Ordering
+          dotnet restore 
           dotnet build Reenbit.Ordering.Public.Events/Reenbit.Ordering.Public.Events.csproj -c ${{ env.BUILD_CONFIGURATION }}  -p:PackageVersion=${{ steps.build_number.outputs.major }}.${{ steps.build_number.outputs.minor }}.${{ steps.build_number.outputs.patch }}
           dotnet pack Reenbit.Ordering.Public.Events/Reenbit.Ordering.Public.Events.csproj -c ${{ env.BUILD_CONFIGURATION }}  -p:PackageVersion=${{ steps.build_number.outputs.major }}.${{ steps.build_number.outputs.minor }}.${{ steps.build_number.outputs.patch }}
 
