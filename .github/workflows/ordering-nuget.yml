@@ -3,9 +3,9 @@ name: Push Ordering Contracts Nuget Package to GitHub Package Registry
 on:
   push:
     branches:
-      - main
+    - main
     paths:
-      - 'Reenbit.Ordering/**'
+    - "Reenbit.Ordering/**"
   workflow_dispatch:
 
 env:

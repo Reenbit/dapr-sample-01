@@ -3,7 +3,11 @@ name: Build and deploy inventory service
 on:
   push:
     branches:
-      - main
+    - main
     paths:
-      - 'Reenbit.Inventory/**'
+    - "Reenbit.Inventory/**"
   workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest

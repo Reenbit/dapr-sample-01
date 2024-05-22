@@ -4,7 +4,11 @@ name: Build and deploy ordering service
 on:
   push:
     branches:
-      - main
+    - main
     paths:
-      - 'Reenbit.Ordering/**'
+    - "Reenbit.Ordering/**"
   workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest

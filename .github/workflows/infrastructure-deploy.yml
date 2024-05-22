@@ -3,9 +3,9 @@ name: Deploy infrastructure
 on:
   push:
     branches:
-      - main
+    - main
     paths:
-      - './Reenbit.Infrastructure/**/*'
+    - "Reenbit.Infrastructure/**"
   workflow_dispatch:
 
 jobs:
