@@ -1,0 +1,9 @@
+name: Build and deploy inventory service
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Reenbit.Inventory/**'
+  workflow_dispatch:

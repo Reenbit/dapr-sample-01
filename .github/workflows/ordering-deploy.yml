@@ -1,0 +1,10 @@
+
+name: Build and deploy ordering service
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Reenbit.Ordering/**'
+  workflow_dispatch:
