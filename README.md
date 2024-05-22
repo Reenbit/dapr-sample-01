@@ -3,7 +3,7 @@ Simplifying .NET distributed application with Microsoft’s Dapr and Azure Conta
 
 # Installation
 
-### Create Azure Service Principal and save as a secret in github repository secrets
+1. Create Azure Service Principal and save as a secret in github repository secrets
 
 Using Azure shell run the following command and save the output as `AZURE_CREDENTIALS` secret in github repository
 ```
@@ -25,4 +25,4 @@ The output is in json format:
 }
 ```
 
-### Manually run [`infrastructure-deploy.yml`](https://github.com/Reenbit/dapr-sample-01/actions/workflows/infrastructure-deploy.yml) for the first time to provision the Azure infrastructure.
+2. Manually run [`infrastructure-deploy.yml`](https://github.com/Reenbit/dapr-sample-01/actions/workflows/infrastructure-deploy.yml) for the first time to provision the Azure infrastructure.
