@@ -25,8 +25,4 @@ The output is in json format:
 }
 ```
 
-### Manually create resources: Azure Container Registry
-
-`ACR_USERNAME`, `ACR_PASSWORD` should be taken from Azure Container Registry Access keys page (Username, password) and added as secrets to github repository
-
-### Manually run the `infrastructure-deploy.yml` for the first time to provision the Azure infrastructure.
+### Manually run [`infrastructure-deploy.yml`](https://github.com/Reenbit/dapr-sample-01/actions/workflows/infrastructure-deploy.yml) for the first time to provision the Azure infrastructure.
