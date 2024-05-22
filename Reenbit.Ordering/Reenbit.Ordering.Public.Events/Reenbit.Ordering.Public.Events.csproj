@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://nuget.pkg.github.com/reenbit/index.json</RepositoryUrl>
+        <RepositoryUrl>https://github.com/Reenbit/dapr-sample-01</RepositoryUrl>
         <RepositoryVisibility>public</RepositoryVisibility>
         <Authors>Reenbit</Authors>
     </PropertyGroup>
