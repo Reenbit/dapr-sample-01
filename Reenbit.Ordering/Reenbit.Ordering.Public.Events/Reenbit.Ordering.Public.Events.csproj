@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://nuget.pkg.github.com/reenbit/index.json</RepositoryUrl>
+        <RepositoryVisibility>public</RepositoryVisibility>
         <Authors>Reenbit</Authors>
     </PropertyGroup>
 
