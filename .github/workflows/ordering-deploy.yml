@@ -45,7 +45,8 @@ jobs:
           password: ${{ steps.acr-credentials.outputs.password }}
 
       - run: |
-          docker build . -f Reenbit.Ordering/Reenbit.Ordering.API/Dockerfile -t ${{ steps.acr-credentials.outputs.login-server }}/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
+          cd Reenbit.Ordering
+          docker build . -f Reenbit.Ordering.API/Dockerfile -t ${{ steps.acr-credentials.outputs.login-server }}/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
           docker push ${{ steps.acr-credentials.outputs.login-server }}/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
 
   deploy:
