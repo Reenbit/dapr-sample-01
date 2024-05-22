@@ -72,4 +72,5 @@ jobs:
             az deployment group create -g $resourceGroup -f ./Reenbit.Ordering/deployment/main-ordering.bicep \
              -p \
                 environmentName='test-westeu' \
-                containerImage=${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
+                containerImage=${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }} \
+                containerRegistry=${{ env.REGISTRY }}
