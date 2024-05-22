@@ -4,7 +4,6 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Reenbit.Ordering.API/Reenbit.Ordering.API.csproj", "Reenbit.Ordering.API/"]
-COPY ["nuget.config", "./"]
 RUN dotnet restore "Reenbit.Ordering.API/Reenbit.Ordering.API.csproj"
 COPY . .
 WORKDIR "/src/Reenbit.Ordering.API"
