@@ -12,5 +12,4 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2018-01-01-preview
 }
 
 var listKeysEndpoint = '${serviceBusNamespace.id}/AuthorizationRules/RootManageSharedAccessKey'
-
 output connectionString string = listKeys(listKeysEndpoint, serviceBusNamespace.apiVersion).primaryConnectionString
