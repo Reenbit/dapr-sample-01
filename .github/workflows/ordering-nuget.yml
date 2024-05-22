@@ -45,5 +45,4 @@ jobs:
 
       - name: nuget publish
         run: |
-          dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github ${{ env.GITHUB_PACKAGE_REGISTRY_URL }}
-          dotnet nuget push *.Public.*/bin/Release/*.nupkg --skip-duplicate
+          dotnet nuget push *.Public.*/bin/Release/*.nupkg -k {{ secrets.NUGET_API_KEY }} --skip-duplicate
