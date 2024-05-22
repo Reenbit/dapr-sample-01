@@ -3,7 +3,7 @@ name: Build and deploy infrastructure
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'Reenbit.Infrastructure/**'
   workflow_dispatch:

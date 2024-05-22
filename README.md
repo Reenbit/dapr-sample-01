@@ -13,8 +13,8 @@ The output is in json format:
 ```
 {
   "clientId": "********",
-  "clientSecret": "********",,
-  "subscriptionId": "********",,
+  "clientSecret": "********",
+  "subscriptionId": "********",
   "tenantId": "********",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
