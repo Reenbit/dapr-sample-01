@@ -1,0 +1,33 @@
+name: Build and deploy infrastructure
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Reenbit.Infrastructure/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy bicep
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            resourceGroup=rg-reenbit-dapr-test-westeu
+            az group create -g $resourceGroup -l westeurope
+
+            az deployment group create -g $resourceGroup -f ./deployment/main-infrastructure.bicep \
+             -p \
+                environmentName='test-westeu'

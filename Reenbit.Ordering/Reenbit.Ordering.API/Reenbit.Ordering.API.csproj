@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <UserSecretsId>4683cc75-9347-4b0e-a9d9-47f07b180d0f</UserSecretsId>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <NoWarn>1701;1702;1591;</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Azure.Identity" Version="1.8.2" />
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+        <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
+        <PackageReference Include="Dapr.AspNetCore" Version="1.10.0" />
+        <PackageReference Include="Dapr.Client" Version="1.10.0" />
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Reenbit.Ordering.Cqrs\Reenbit.Ordering.Cqrs.csproj" />
+      <ProjectReference Include="..\Reenbit.Ordering.Domain\Reenbit.Ordering.Domain.csproj" />
+      <ProjectReference Include="..\Reenbit.Ordering.Public.Contracts\Reenbit.Ordering.Public.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

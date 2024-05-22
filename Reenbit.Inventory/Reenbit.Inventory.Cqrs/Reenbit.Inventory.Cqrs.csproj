@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapr.Actors" Version="1.10.0" />
+      <PackageReference Include="Reenbit.Ordering.Public.Events" Version="0.0.25" />
+      <PackageReference Include="MediatR" Version="10.0.1" />
+      <PackageReference Include="MediatR.Contracts" Version="1.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Reenbit.Inventory.Domain\Reenbit.Inventory.Domain.csproj" />
+      <ProjectReference Include="..\Reenbit.Inventory.Public.Contracts\Reenbit.Inventory.Public.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

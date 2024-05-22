@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reenbit.Ordering.Public", "Reenbit.Ordering.Public", "{29493C14-05C9-4987-B5E7-A1147FBCD0E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reenbit.Ordering.Public.Events", "Reenbit.Ordering.Public.Events\Reenbit.Ordering.Public.Events.csproj", "{57DD1B5A-45FE-4D53-ACE4-097323DE0355}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reenbit.Ordering.API", "Reenbit.Ordering.API\Reenbit.Ordering.API.csproj", "{612B7E75-D49B-4F94-A8BD-6DF23603EACB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reenbit.Ordering.Domain", "Reenbit.Ordering.Domain\Reenbit.Ordering.Domain.csproj", "{4FDB209B-6898-497D-990A-0D4887AB866B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reenbit.Ordering.Cqrs", "Reenbit.Ordering.Cqrs\Reenbit.Ordering.Cqrs.csproj", "{F3B28511-7459-4978-8535-EECE3821E68C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reenbit.Ordering.Public.Contracts", "Reenbit.Ordering.Public.Contracts\Reenbit.Ordering.Public.Contracts.csproj", "{0346FDF1-787B-40B0-B6D1-79ABBE82517D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{8981F198-073C-4557-A8B2-F70E1C4EB990}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\local-deploy.ps1 = deployment\local-deploy.ps1
+		deployment\main-ordering.bicep = deployment\main-ordering.bicep
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57DD1B5A-45FE-4D53-ACE4-097323DE0355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57DD1B5A-45FE-4D53-ACE4-097323DE0355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57DD1B5A-45FE-4D53-ACE4-097323DE0355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57DD1B5A-45FE-4D53-ACE4-097323DE0355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{612B7E75-D49B-4F94-A8BD-6DF23603EACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612B7E75-D49B-4F94-A8BD-6DF23603EACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612B7E75-D49B-4F94-A8BD-6DF23603EACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612B7E75-D49B-4F94-A8BD-6DF23603EACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FDB209B-6898-497D-990A-0D4887AB866B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FDB209B-6898-497D-990A-0D4887AB866B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FDB209B-6898-497D-990A-0D4887AB866B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FDB209B-6898-497D-990A-0D4887AB866B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0346FDF1-787B-40B0-B6D1-79ABBE82517D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0346FDF1-787B-40B0-B6D1-79ABBE82517D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0346FDF1-787B-40B0-B6D1-79ABBE82517D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0346FDF1-787B-40B0-B6D1-79ABBE82517D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57DD1B5A-45FE-4D53-ACE4-097323DE0355} = {29493C14-05C9-4987-B5E7-A1147FBCD0E2}
+		{0346FDF1-787B-40B0-B6D1-79ABBE82517D} = {29493C14-05C9-4987-B5E7-A1147FBCD0E2}
+	EndGlobalSection
+EndGlobal
