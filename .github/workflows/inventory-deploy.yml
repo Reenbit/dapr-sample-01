@@ -44,6 +44,11 @@ jobs:
           username: ${{ steps.acr-credentials.outputs.username }}
           password: ${{ steps.acr-credentials.outputs.password }}
 
+      - name: Set up NuGet for GitHub Packages
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -n github
+          dotnet nuget update source github --username ${{ github.repository_owner }} --password ${{ secrets.GH_PAT }}
+
       - run: |
           cd Reenbit.Inventory
           docker build . -f Reenbit.Inventory.API/Dockerfile -t ${{ steps.acr-credentials.outputs.login-server }}/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
