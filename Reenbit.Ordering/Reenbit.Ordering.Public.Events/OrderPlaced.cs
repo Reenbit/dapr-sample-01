@@ -3,21 +3,14 @@ using System.Collections.Generic;
 
 namespace Reenbit.Ordering.Public.Events;
 
-public class OrderPlaced
+public class OrderPlaced(Guid orderId, List<OrderItem> items)
 {
-    public OrderPlaced(Guid orderId, List<OrderItem> items)
-    {
-        OrderId = orderId;
-        Items = items;
-    }
-    
     public DateTime When { get; } = DateTime.UtcNow;
     
-    public Guid OrderId { get; set; }
+    public Guid OrderId { get; set; } = orderId;
 
-    public List<OrderItem> Items { get; set; }
+    public List<OrderItem> Items { get; set; } = items;
 }
-
 
 public class OrderItem
 {

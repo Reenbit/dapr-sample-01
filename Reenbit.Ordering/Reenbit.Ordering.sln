@@ -14,7 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reenbit.Ordering.Public.Con
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{8981F198-073C-4557-A8B2-F70E1C4EB990}"
 	ProjectSection(SolutionItems) = preProject
-		deployment\local-deploy.ps1 = deployment\local-deploy.ps1
 		deployment\main-ordering.bicep = deployment\main-ordering.bicep
 	EndProjectSection
 EndProject
