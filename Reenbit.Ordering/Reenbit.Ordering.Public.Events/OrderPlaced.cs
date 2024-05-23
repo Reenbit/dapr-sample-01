@@ -18,6 +18,7 @@ public class OrderPlaced
     public List<OrderItem> Items { get; set; }
 }
 
+
 public class OrderItem
 {
     public Guid ProductId { get; set; }
