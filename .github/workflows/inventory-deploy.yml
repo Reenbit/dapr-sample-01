@@ -48,8 +48,7 @@ jobs:
         run: |
           cd Reenbit.Inventory/
           echo "Adding GitHub Packages source"
-          mkdir -p ~/.nuget/NuGet
-          cat <<EOF > ~/.nuget/NuGet/NuGet.Config
+          cat <<EOF > ~/nuget.config
           <?xml version="1.0" encoding="utf-8"?>
           <configuration>
             <packageSources>
