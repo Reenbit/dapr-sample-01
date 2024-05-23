@@ -44,12 +44,25 @@ jobs:
           username: ${{ steps.acr-credentials.outputs.username }}
           password: ${{ steps.acr-credentials.outputs.password }}
 
-      - name: Publish to GitHub Packages
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+      - name: Set up NuGet for GitHub Packages
         run: |
-          dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -n github --username ${{ github.repository_owner }} --password ${{ secrets.GH_PAT }}
-          dotnet nuget push ./nupkg/*.nupkg --source github --api-key ${{ secrets.GH_PAT }}
+          cd Reenbit.Inventory/
+          echo "Adding GitHub Packages source"
+          mkdir -p ~/.nuget/NuGet
+          cat <<EOF > ~/.nuget/NuGet/NuGet.Config
+          <?xml version="1.0" encoding="utf-8"?>
+          <configuration>
+            <packageSources>
+              <add key="github" value="https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" />
+            </packageSources>
+            <packageSourceCredentials>
+              <github>
+                <add key="Username" value="${{ github.repository_owner }}" />
+                <add key="ClearTextPassword" value="${{ secrets.GH_PAT }}" />
+              </github>
+            </packageSourceCredentials>
+          </configuration>
+          EOF
 
       - run: |
           cd Reenbit.Inventory
