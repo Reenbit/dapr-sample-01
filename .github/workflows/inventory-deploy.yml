@@ -48,7 +48,7 @@ jobs:
         run: |
           cd Reenbit.Inventory/
           echo "Adding GitHub Packages source"
-          cat <<EOF > ~/nuget.config
+          cat <<EOF > nuget.config
           <?xml version="1.0" encoding="utf-8"?>
           <configuration>
             <packageSources>
@@ -56,7 +56,7 @@ jobs:
             </packageSources>
             <packageSourceCredentials>
               <github>
-                <add key="Username" value="${{ github.repository_owner }}" />
+                <add key="Username" value="token" />
                 <add key="ClearTextPassword" value="${{ secrets.GH_PAT }}" />
               </github>
             </packageSourceCredentials>
