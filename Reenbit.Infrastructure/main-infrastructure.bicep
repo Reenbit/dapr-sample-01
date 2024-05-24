@@ -64,9 +64,9 @@ module apim 'api-management.bicep' = {
 
 // Redis for state management
 module redisCache 'redis-cache.bicep' = {
-  name: 'redis-samvirk-${environmentName}'
+  name: 'redis-reenbit-${environmentName}'
   params: {
-    redisName: 'redis-samvirk-${environmentName}'
+    redisName: 'redis-reenbit-${environmentName}'
     location: location
   }
 }
