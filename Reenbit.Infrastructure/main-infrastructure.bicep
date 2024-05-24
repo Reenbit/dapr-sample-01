@@ -5,6 +5,11 @@ var inventoryServiceName = 'app-inventory-${environmentName}'
 var orderingServiceName = 'app-ordering-${environmentName}'
 var containerRegistryName = replace('acrreenbitdapr${environmentName}', '-', '')
 
+var daprComponentScopes = [
+  orderingServiceName
+  inventoryServiceName
+]
+
 // Container Registry
 module containerRegistry 'container-registry.bicep' = {
   name: 'acr-reenbit-dapr-${environmentName}'
@@ -57,6 +62,31 @@ module apim 'api-management.bicep' = {
   }
 }
 
+// Redis for state management
+module redisCache 'redis-cache.bicep' = {
+  name: 'redis-samvirk-${environmentName}'
+  params: {
+    redisName: 'redis-samvirk-${environmentName}'
+    location: location
+  }
+}
+
+// Dapr state component
+module daprStateComponent 'dapr-state.bicep' = {
+  name: 'dapr-state-${environmentName}'
+  dependsOn: [
+    environment
+    redisCache
+  ]
+  params: {
+    scopes: daprComponentScopes
+    containerAppEnvName: environment.name
+    redisCacheHost: redisCache.outputs.host
+    redisCachePrimaryKey: redisCache.outputs.primaryKey
+  }
+}
+
+// Dapr pubsub component
 resource pubSubDaprComponent 'Microsoft.App/managedEnvironments/daprComponents@2022-03-01' = {
   name: '${environment.name}/pubsub'
   dependsOn: [
@@ -82,9 +112,6 @@ resource pubSubDaprComponent 'Microsoft.App/managedEnvironments/daprComponents@2
         value: '3'
       }
     ]
-    scopes: [
-      orderingServiceName
-      inventoryServiceName
-    ]
+    scopes: daprComponentScopes
   }
 }
