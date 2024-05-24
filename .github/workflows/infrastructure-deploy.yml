@@ -28,6 +28,6 @@ jobs:
             resourceGroup=rg-reenbit-dapr-test-westeu
             az group create -g $resourceGroup -l westeurope
 
-            az deployment group create -g $resourceGroup -f ./Reenbit.Infrastructure/deployment/main-infrastructure.bicep \
+            az deployment group create -g $resourceGroup -f ./Reenbit.Infrastructure/main-infrastructure.bicep \
              -p \
                 environmentName='test-westeu'
