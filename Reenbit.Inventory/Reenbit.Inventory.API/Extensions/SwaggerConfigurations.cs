@@ -1,15 +1,17 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Reenbit.Inventory.API.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Reenbit.Inventory.API.Extensions;
 
 public static class SwaggerConfigurations
 {
-    public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services)
+    public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services, string prefix)
     {
         services.AddSwaggerGen(swagger =>
         {
@@ -21,6 +23,11 @@ public static class SwaggerConfigurations
                 { Title = RoutingConstants.Documentation._technicalApiName, Version = "v1", Description = "" });
 
             swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Reenbit.Inventory.API.xml"));
+
+            if (!string.IsNullOrEmpty(prefix))
+            {
+                swagger.DocumentFilter<PathPrefixInsertDocumentFilter>(prefix);
+            }
         });
 
         return services;
@@ -41,5 +48,19 @@ public static class SwaggerConfigurations
         });
 
         return app;
+    }
+    
+    public abstract class PathPrefixInsertDocumentFilter(string prefix) : IDocumentFilter
+    {
+        public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
+        {
+            var paths = swaggerDoc.Paths.Keys.ToList();
+            foreach (var path in paths)
+            {
+                var pathToChange = swaggerDoc.Paths[path];
+                swaggerDoc.Paths.Remove(path);
+                swaggerDoc.Paths.Add("/" + prefix + path, pathToChange);
+            }
+        }
     }
 }

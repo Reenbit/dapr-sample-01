@@ -36,7 +36,7 @@ builder.Services.AddMediatR(
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddSwaggerDocumentation();
+builder.Services.AddSwaggerDocumentation(builder.Environment.IsDevelopment() ? "" : "ordering");
 
 builder.Services.AddCors(options =>
 {

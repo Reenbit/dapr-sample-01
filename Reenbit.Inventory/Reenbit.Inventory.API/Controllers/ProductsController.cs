@@ -29,7 +29,7 @@ public class ProductsController: BaseController
 
         return Ok(result);
     }
-    
+
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductResponse))]
     public async Task<IActionResult> CreateProduct([FromBody]CreateNewProductRequest request)

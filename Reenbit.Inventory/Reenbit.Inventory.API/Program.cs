@@ -30,7 +30,7 @@ builder.Services.AddMediatR(
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddSwaggerDocumentation();
+builder.Services.AddSwaggerDocumentation(builder.Environment.IsDevelopment() ? "" : "inventory");
 
 builder.Services.AddCors(options =>
 {
