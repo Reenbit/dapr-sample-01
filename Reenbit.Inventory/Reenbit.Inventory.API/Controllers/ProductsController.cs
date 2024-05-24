@@ -41,7 +41,7 @@ public class ProductsController: BaseController
         return Ok(result);
     }
 
-    [HttpPost]
+    [HttpPost("order-placed")]
     [Topic(pubsubName: "pubsub", name: "order-placed")]
     public async Task<IActionResult> UpdateProductsRemainingAmount(OrderPlaced orderPlaced)
     {
