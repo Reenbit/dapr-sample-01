@@ -4,11 +4,6 @@ namespace Reenbit.Inventory.Domain.Entities;
 
 public class Product
 {
-    public string Id => GetDocumentId(ProductId);
-
-    public static string GetDocumentId(Guid productId)
-        => "products/" + productId;
-    
     public Guid ProductId { get; set; }
     
     public string Title { get; set; }

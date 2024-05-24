@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Dapr;
 using Reenbit.Inventory.API.Constants;
 using Reenbit.Inventory.Cqrs.Commands;
 using Reenbit.Inventory.Cqrs.Queries;
@@ -7,6 +8,7 @@ using Reenbit.Inventory.Public.Contracts.Requests;
 using Reenbit.Inventory.Public.Contracts.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Reenbit.Ordering.Public.Events;
 
 namespace Reenbit.Inventory.API.Controllers;
 
@@ -37,5 +39,16 @@ public class ProductsController: BaseController
         var result = await Mediator.Send(command);
 
         return Ok(result);
+    }
+
+    [HttpPost]
+    [Topic(pubsubName: "pubsub", name: "order-placed")]
+    public async Task<IActionResult> UpdateProductsRemainingAmount(OrderPlaced orderPlaced)
+    {
+        var command = new UpdateProductsRemainingCountCommand(orderPlaced.Items);
+
+        await Mediator.Send(command);
+
+        return Ok();
     }
 }

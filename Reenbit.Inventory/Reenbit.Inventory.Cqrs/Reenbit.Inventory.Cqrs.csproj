@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Dapr.Client" Version="1.10.0" />
       <PackageReference Include="MediatR" Version="10.0.1" />
       <PackageReference Include="MediatR.Contracts" Version="1.0.1" />
       <PackageReference Include="Reenbit.Ordering.Public.Events" Version="0.0.23" />
