@@ -20,7 +20,7 @@ internal class CreateProductCommandHandler(DaprClient daprClient)
         var product = new Product();
         product.Create(request.Title, request.Description, request.Price, request.RemainingCount);
         
-        var products = await daprClient.GetStateAsync<List<Product>>(_stateStore, "products", cancellationToken: cancellationToken);
+        var products = await daprClient.GetStateAsync<List<Product>>(_stateStore, "products", cancellationToken: cancellationToken) ?? [];
         products.Add(product);
 
         await daprClient.SaveStateAsync(_stateStore, "products", products, cancellationToken: cancellationToken);

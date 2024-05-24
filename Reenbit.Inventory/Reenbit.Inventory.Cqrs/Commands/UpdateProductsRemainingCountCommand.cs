@@ -17,7 +17,7 @@ internal class UpdateProductsRemainingCountCommandHandler(DaprClient daprClient)
     
     public async Task<Unit> Handle(UpdateProductsRemainingCountCommand request, CancellationToken cancellationToken)
     {
-        var products = await daprClient.GetStateAsync<List<Product>>(_stateStore, "products", cancellationToken: cancellationToken);
+        var products = await daprClient.GetStateAsync<List<Product>>(_stateStore, "products", cancellationToken: cancellationToken) ?? [];
 
         foreach (var orderedItem in request.OrderedItems)
         {
