@@ -22,7 +22,10 @@ internal class GetAllProductsQueryHandler(DaprClient daprClient) : IRequestHandl
         return products
             .Select(x => new ProductResponse
             {
-                Id = x.ProductId, Title = x.Title, RemainingCount = x.RemainingCount,
+                Id = x.ProductId, 
+                Title = x.Title, 
+                Price = x.Price,
+                RemainingCount = x.RemainingCount,
                 Description = x.Description
             }).ToList();
     }
