@@ -1,6 +1,5 @@
 using Reenbit.Ordering.API.Controllers;
 using Reenbit.Ordering.API.Extensions;
-using Reenbit.Ordering.Cqrs.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -10,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.ApplicationInsights;
 using Newtonsoft.Json.Converters;
+using Reenbit.Ordering.Cqrs.Commands;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +36,7 @@ builder.Services.AddMediatR(
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddSwaggerDocumentation("");
+builder.Services.AddSwaggerDocumentation(builder.Environment.IsDevelopment() ? "" : "ordering");
 
 builder.Services.AddCors(options =>
 {

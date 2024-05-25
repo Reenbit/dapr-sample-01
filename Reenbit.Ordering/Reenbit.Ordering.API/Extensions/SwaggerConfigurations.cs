@@ -22,7 +22,7 @@ public static class SwaggerConfigurations
                 new OpenApiInfo
                     { Title = RoutingConstants.Documentation._technicalApiName, Version = "v1", Description = "" });
 
-            swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Reenbit.Inventory.API.xml"));
+            swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Reenbit.Ordering.API.xml"));
 
             if (!string.IsNullOrEmpty(prefix))
             {
@@ -50,7 +50,7 @@ public static class SwaggerConfigurations
         return app;
     }
     
-    public abstract class PathPrefixInsertDocumentFilter(string prefix) : IDocumentFilter
+    public class PathPrefixInsertDocumentFilter(string prefix) : IDocumentFilter
     {
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
