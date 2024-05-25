@@ -50,7 +50,8 @@ public static class SwaggerConfigurations
         return app;
     }
     
-    public abstract class PathPrefixInsertDocumentFilter(string prefix) : IDocumentFilter
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class PathPrefixInsertDocumentFilter(string prefix) : IDocumentFilter
     {
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
