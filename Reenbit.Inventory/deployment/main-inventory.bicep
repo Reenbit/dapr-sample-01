@@ -32,7 +32,7 @@ module inventoryService '../../Reenbit.Infrastructure/container-http.bicep' = {
 }
 
 // Add Inventory Service to API Management
-module apimInveentory '../../Reenbit.Infrastructure/api-management-api.bicep' = {
+module apimInventory '../../Reenbit.Infrastructure/api-management-api.bicep' = {
   name: 'apim-${inventoryServiceName}'
   params: {
     apimName: 'apim-reenbit-${environmentName}'

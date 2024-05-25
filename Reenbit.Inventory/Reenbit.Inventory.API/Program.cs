@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.ApplicationInsights;
+using Newtonsoft.Json.Converters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,12 @@ builder.Host.UseDefaultServiceProvider(opt => opt.ValidateScopes = false);
 
 builder.Services.AddApplicationInsightsTelemetry();
 
-builder.Services.AddControllers();
+builder.Services
+    .AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.Converters.Add(new StringEnumConverter());
+    });
 
 builder.Services.AddDaprClient();
 
